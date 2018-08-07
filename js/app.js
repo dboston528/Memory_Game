@@ -1,25 +1,25 @@
-console.log("Mother Fucker");
+console.log("Boi You out here codin bruh");
 
 
 /*
  * Create a list that holds all of your cards
  */
-let card = document.getElementsByClassName("card");
-console.log(card);
+const cardsAgain = document.querySelector('.deck');
 
-let cards = [...card];
+//Using the Element web API porperety classList
+cardsAgain.addEventListener('click', event => {
+  const clickTarget = event.target;
+  if (clickTarget.classList.contains('card')) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
+  }
+});
 
-//loops event listener
-for (var i = 0; i < cards.length; i++){
-  cards[i].addEventListener("click", card);
-};
 
-//toggles cards
-var display = function (){
-  this.classList.toggle("open");
-  this.classList.toggle("show");
-  this.classList.toggle("disabled");
-}
+// cards.eventListener('click', function (){
+//   consol.log("You Clicke The damn Card! Good SHIT");
+// });
+
 
 /*
  * Display the cards on the page
