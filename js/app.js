@@ -10,10 +10,14 @@ const cardsAgain = document.querySelector('.deck');
 cardsAgain.addEventListener('click', event => {
   const clickTarget = event.target;
   if (clickTarget.classList.contains('card')) {
-    clickTarget.classList.toggle('open');
-    clickTarget.classList.toggle('show');
+    toggleCard(clickTarget);
   }
 });
+
+function toggleCard(clickTarget) {
+  clickTarget.classList.toggle('open');
+  clickTarget.classList.toggle('show')
+}
 
 
 // cards.eventListener('click', function (){
