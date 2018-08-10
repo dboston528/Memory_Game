@@ -5,12 +5,17 @@ console.log("Boi You out here codin bruh");
  * Create a list that holds all of your cards
  */
 const cardsAgain = document.querySelector('.deck');
+let toggledCards = [];
 
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
   const clickTarget = event.target;
   if (clickTarget.classList.contains('card')) {
     toggleCard(clickTarget);
+    addToggleCard(clickTarget);
+    if (toggledCards.length === 2) {
+      checkForMatch();
+    }
   }
 });
 
@@ -18,6 +23,26 @@ function toggleCard(clickTarget) {
   clickTarget.classList.toggle('open');
   clickTarget.classList.toggle('show')
 }
+
+function addToggleCard(clickTarget){
+  toggledCards.push(clickTarget);
+  console.log(toggledCards);
+}
+
+function checkForMatch () {
+  if (
+    toggledCards[0].firstElementChild.className ===
+    toggledCards[1].firstElementChild.className
+  ) {
+    toggledCards[0].classList.toggle('match');
+    toggledCards[1].classList.toggle('match');
+    toggledCards = [];
+  } else {
+    console.log('Not a match!');
+    toggledCards = [];
+    }
+  }
+
 
 
 // cards.eventListener('click', function (){
