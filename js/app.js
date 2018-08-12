@@ -10,7 +10,7 @@ let toggledCards = [];
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')) {
+  if (clickTarget.classList.contains('card') && toggledCards.length < 2) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (toggledCards.length === 2) {
@@ -37,10 +37,14 @@ function checkForMatch () {
     toggledCards[0].classList.toggle('match');
     toggledCards[1].classList.toggle('match');
     toggledCards = [];
+    console.log('This is a match')
   } else {
-    console.log('Not a match!');
-    toggledCards = [];
-    }
+    setTimeout(()=> {
+      toggleCard(toggledCards[0]);
+      toggleCard(toggledCards[1]);
+      toggledCards = [];
+    }, 1000);
+  }
   }
 
 
