@@ -10,10 +10,7 @@ let toggledCards = [];
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card') &&
-      !clickTarget.classList.contains('match') &&
-      toggledCards.length < 2 &&
-      !toggledCards.includes(clickTarget)) {
+  if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (toggledCards.length === 2) {
@@ -50,6 +47,15 @@ function checkForMatch () {
   }
   }
 
+function isClickValid(clickTarget) {
+  return(
+        clickTarget.classList.contains('card') &&
+        !clickTarget.classList.contains('match') &&
+        toggledCards.length < 2 &&
+        !toggledCards.includes(clickTarget)
+
+  )
+}
 
 
 // cards.eventListener('click', function (){
