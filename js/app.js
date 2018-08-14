@@ -61,6 +61,9 @@ function shuffleDeck (){
   const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
   console.log('Cards to shuffle', cardsToShuffle);
   const shuffledCards = shuffle(cardsToShuffle);
+  for (card of shuffledCards) {
+    cardsAgain.appendChild(card);
+  }
 }
 shuffleDeck();
 
