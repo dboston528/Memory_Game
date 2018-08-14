@@ -21,7 +21,7 @@ cardsAgain.addEventListener('click', event => {
 
 function toggleCard(clickTarget) {
   clickTarget.classList.toggle('open');
-  clickTarget.classList.toggle('show')
+  clickTarget.classList.toggle('show');
 }
 
 function addToggleCard(clickTarget){
