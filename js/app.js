@@ -6,6 +6,8 @@ console.log("Boi You out here codin bruh");
  */
 const cardsAgain = document.querySelector('.deck');
 let toggledCards = [];
+// this statement initializes a variable at the value of zero.
+let moves = 0;
 
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
@@ -15,6 +17,7 @@ cardsAgain.addEventListener('click', event => {
     addToggleCard(clickTarget);
     if (toggledCards.length === 2) {
       checkForMatch(clickTarget);
+      addMove();
     }
   }
 });
@@ -66,6 +69,13 @@ function shuffleDeck (){
   }
 }
 shuffleDeck();
+
+//increments moves by 1 every match attempt in the DOM.
+function addMove() {
+  moves++;
+  const movesText = document.querySelector('.moves');
+  movesText.innerHTML = moves
+}
 
 // cards.eventListener('click', function (){
 //   consol.log("You Clicke The damn Card! Good SHIT");
