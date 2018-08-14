@@ -57,6 +57,12 @@ function isClickValid(clickTarget) {
   )
 }
 
+function shuffleDeck (){
+  const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
+  console.log('Cards to shuffle', cardsToShuffle);
+  const shuffledCards = shuffle(cardsToShuffle);
+}
+shuffleDeck();
 
 // cards.eventListener('click', function (){
 //   consol.log("You Clicke The damn Card! Good SHIT");
