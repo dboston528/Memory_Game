@@ -18,6 +18,7 @@ cardsAgain.addEventListener('click', event => {
     if (toggledCards.length === 2) {
       checkForMatch(clickTarget);
       addMove();
+      checkScore();
     }
   }
 });
@@ -76,6 +77,27 @@ function addMove() {
   const movesText = document.querySelector('.moves');
   movesText.innerHTML = moves
 }
+
+function checkScore (){
+  if (moves === 16 || moves === 24
+  ) { removeStar();
+
+  }
+}
+
+function removeStar() {
+  const starList  = document.querySelectorAll('.stars li');
+  for (star of starList) {
+    if (star.style.display !== 'none'){
+      star.style.display = 'none';
+      break;
+    }
+  }
+}
+removeStar();
+removeStar();
+
+
 
 // cards.eventListener('click', function (){
 //   consol.log("You Clicke The damn Card! Good SHIT");
