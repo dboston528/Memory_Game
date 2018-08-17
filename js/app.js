@@ -97,11 +97,14 @@ function removeStar() {
 // removeStar();
 // removeStar();
 
-
-
-// cards.eventListener('click', function (){
-//   consol.log("You Clicke The damn Card! Good SHIT");
-// });
+function startClock() {
+  time = 0;
+  let clockId = setInterval(() => {
+    time++
+    console.log(time);
+  }, 1000);
+}
+startClock();
 
 
 /*
