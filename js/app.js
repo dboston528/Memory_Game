@@ -79,7 +79,7 @@ function addMove() {
 }
 
 function checkScore (){
-  if (moves === 16 || moves === 24
+  if (moves === 5 || moves === 10
   ) { removeStar();
 
   }
@@ -94,8 +94,8 @@ function removeStar() {
     }
   }
 }
-removeStar();
-removeStar();
+// removeStar();
+// removeStar();
 
 
 
