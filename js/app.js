@@ -1,5 +1,3 @@
-console.log("Boi You out here codin bruh");
-
 
 /*
  * Create a list that holds all of your cards
@@ -8,11 +6,18 @@ const cardsAgain = document.querySelector('.deck');
 let toggledCards = [];
 // this statement initializes a variable at the value of zero.
 let moves = 0;
+let clockOff = true;
+let time = 0;
+let clockId;
 
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
   const clickTarget = event.target;
   if (isClickValid(clickTarget)) {
+      if (clockOff) {
+        startClock ();
+        clockOff = false;
+      }
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (toggledCards.length === 2) {
@@ -20,6 +25,7 @@ cardsAgain.addEventListener('click', event => {
       addMove();
       checkScore();
     }
+
   }
 });
 
@@ -63,7 +69,7 @@ function isClickValid(clickTarget) {
 
 function shuffleDeck (){
   const cardsToShuffle = Array.from(document.querySelectorAll('.deck li'));
-  console.log('Cards to shuffle', cardsToShuffle);
+  // console.log('Cards to shuffle', cardsToShuffle);
   const shuffledCards = shuffle(cardsToShuffle);
   for (card of shuffledCards) {
     cardsAgain.appendChild(card);
@@ -98,14 +104,35 @@ function removeStar() {
 // removeStar();
 
 function startClock() {
-  time = 0;
-  let clockId = setInterval(() => {
+  clockId = setInterval(() => {
     time++
-    console.log(time);
+    // console.log(time);
+    displayTime();
   }, 1000);
-}
-startClock();
 
+}
+// startClock();
+// displayTime();
+
+function displayTime () {
+  const minutes = Math.floor(time/60);
+  const seconds = time % 60;
+  const clock = document.querySelector('.clock');
+  // console.log(clock);
+  clock.innerHTML = time;
+  if (seconds < 10) {
+    clock.innerHTML = `${minutes}:0${seconds}`;
+  } else {
+    clock.innerHTML = `${minutes}:${seconds}`;
+  }
+
+}
+
+//stopping clock
+
+function stopClock() {
+  clearInterval(clockId);
+}
 
 /*
  * Display the cards on the page
