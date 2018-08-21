@@ -134,6 +134,15 @@ function stopClock() {
   clearInterval(clockId);
 }
 
+function toggleModal () {
+  const modal = document.querySelector('.modal__background');
+  modal.classList.toggle('hide');
+}
+
+toggleModal ()
+toggleModal ()
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
