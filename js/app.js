@@ -134,6 +134,8 @@ function stopClock() {
   clearInterval(clockId);
 }
 
+
+//this fucntion toggles the modal.
 function toggleModal () {
   const modal = document.querySelector('.modal__background');
   modal.classList.toggle('hide');
@@ -142,7 +144,42 @@ function toggleModal () {
 toggleModal ()
 toggleModal ()
 
+function getStars () {
+  stars = document.querySelectorAll('.stars li');
+  starCount = 0;
+  for (star of stars) {
+    if (star.style.display !== 'none'){
+      starCount++;
+    }
+  }
+  console.log(starCount);
+  return starCount;
+}
 
+time = 121;
+displayTime();
+moves = 16;
+checkScore();
+toggleModal();
+
+function writeModalStats () {
+  const timeStat = document.querySelector('.modal__time');
+  const clockTime = document.querySelector('.clock').innerHTML;
+  const movesStat = document.querySelector('.modal__moves');
+  const starsStat = document.querySelector('.modal__stars')
+  const stars = getStars();
+
+  timeStat.innerHTML = `Time = ${clockTime}`;
+  movesStat.innerHTML =  `Moves = ${moves}`;
+  starsStat.innerHTML = `Stars = ${stars}`
+
+}
+
+writeModalStats();
+
+document.querySelector('.modal__cancel').addEventListener('click', () => {
+  toggleModal();
+})
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -175,4 +212,3 @@ function shuffle(array) {
  *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
