@@ -180,6 +180,32 @@ document.querySelector('.modal__cancel').addEventListener('click', () => {
   toggleModal();
 });
 
+document.querySelector('.modal__replay').addEventListener('click', () => {
+  // Call reset game here!
+});
+
+
+//This function resets the game
+function resetGame () {
+  resetClockAndTime ();
+}
+
+/*This fucntion:
+- calls the stopClock function
+- changes the global clockOff variable to true
+- sets global time variable to 0
+- calls displayTime to reset the HTML */
+function resetClockAndTime () {
+  stopClock ();
+  clockOff = true;
+  time = 0;
+  displayTime();
+}
+
+
+
+
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
