@@ -180,9 +180,7 @@ document.querySelector('.modal__cancel').addEventListener('click', () => {
   toggleModal();
 });
 
-document.querySelector('.modal__replay').addEventListener('click', () => {
-  // Call reset game here!
-});
+document.querySelector('.modal__replay').addEventListener('click', resetGame);
 
 document.querySelector('.restart').addEventListener('click', resetGame);
 
