@@ -184,7 +184,7 @@ document.querySelector('.modal__replay').addEventListener('click', resetGame);
 
 document.querySelector('.restart').addEventListener('click', resetGame);
 
-
+document.querySelector('.modal__close').addEventListener('click', toggleModal);
 //This function resets the game
 function resetGame () {
   resetClockAndTime ();
