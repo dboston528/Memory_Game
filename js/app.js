@@ -184,10 +184,15 @@ document.querySelector('.modal__replay').addEventListener('click', () => {
   // Call reset game here!
 });
 
+document.querySelector('.restart').addEventListener('click', resetGame);
+
 
 //This function resets the game
 function resetGame () {
   resetClockAndTime ();
+  resetMoves();
+  resetStars();
+  shuffleDeck();
 }
 
 /*This fucntion:
@@ -202,6 +207,18 @@ function resetClockAndTime () {
   displayTime();
 }
 
+function resetMoves(){
+  moves = 0;
+  document.querySelector('.moves').innerHTML = moves;
+}
+
+function resetStars(){
+  stars = 0;
+  const starList = document.querySelectorAll('.stars li');
+  for (star of starList) {
+    star.style.display = 'inline';
+  }
+}
 
 
 
