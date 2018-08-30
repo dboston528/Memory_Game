@@ -9,6 +9,8 @@ let moves = 0;
 let clockOff = true;
 let time = 0;
 let clockId;
+let matched = 0;
+const TOTAL_PAIRS = 8;
 
 //Using the Element web API porperety classList
 cardsAgain.addEventListener('click', event => {
@@ -26,6 +28,9 @@ cardsAgain.addEventListener('click', event => {
       checkScore();
     }
 
+    }
+    if (matched === TOTAL_PAIRS) {
+          gameOver();
   }
 });
 
@@ -47,7 +52,7 @@ function checkForMatch () {
     toggledCards[0].classList.toggle('match');
     toggledCards[1].classList.toggle('match');
     toggledCards = [];
-    console.log('This is a match')
+    matched++
   } else {
     setTimeout(()=> {
       toggleCard(toggledCards[0]);
@@ -180,7 +185,10 @@ document.querySelector('.modal__cancel').addEventListener('click', () => {
   toggleModal();
 });
 
-document.querySelector('.modal__replay').addEventListener('click', resetGame);
+document.querySelector('.modal__replay').addEventListener('click', () => {
+toggleModal();
+resetGame();
+});
 
 document.querySelector('.restart').addEventListener('click', resetGame);
 
@@ -219,7 +227,12 @@ function resetStars(){
 }
 
 
+ function gameOver() {
+toggleModal();
+   stopClock();
+   writeModalStats();
 
+ }
 
 /*
  * Display the cards on the page
