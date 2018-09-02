@@ -199,6 +199,7 @@ function resetGame () {
   resetMoves();
   resetStars();
   shuffleDeck();
+
 }
 
 /*This fucntion:
@@ -240,6 +241,10 @@ toggleModal();
      card.className = 'card';
    }
  }
+
+function resetMatched () {
+  matched = 0;
+}
 
 /*
  * Display the cards on the page
