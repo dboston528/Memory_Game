@@ -234,6 +234,13 @@ toggleModal();
 
  }
 
+ function resetCards() {
+   const cards = document.querySelectorAll('.deck li');
+   for (let card of cards) {
+     card.className = 'card';
+   }
+ }
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
