@@ -199,6 +199,8 @@ function resetGame () {
   resetMoves();
   resetStars();
   shuffleDeck();
+  resetMatched();
+  resetCards();
 
 }
 
@@ -279,3 +281,5 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+ //I could not have done this project without the help matthew cranford. Go check him out at matthewcranford.com
