@@ -201,6 +201,7 @@ function resetGame () {
   shuffleDeck();
   resetMatched();
   resetCards();
+  toggledCards = [];
 
 }
 
